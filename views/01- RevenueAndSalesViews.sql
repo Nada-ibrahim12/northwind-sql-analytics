@@ -1,8 +1,10 @@
 --1️. Total revenue (all orders)--
 CREATE VIEW TotalRevenue AS
-SELECT SUM(UnitPrice * Quantity) AS Revenue
+SELECT SUM(UnitPrice * Quantity) AS Revenue,
+    COUNT(DISTINCT OrderID) AS TotalOrders
 FROM [Order Details];
 GO
+
 
 --2. Revenue by year--
 CREATE VIEW RevenueByYear AS
