@@ -43,3 +43,4 @@ SELECT * FROM RevenueBySupplier
 ORDER BY Supplier;
 
 EXECUTE RevenueInYear @Year = 1996;
+EXECUTE RevenueInMonth @Month = 5;
