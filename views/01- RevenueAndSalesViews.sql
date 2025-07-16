@@ -1,4 +1,7 @@
---1️. Total revenue (all orders)--
+-- We can get number of orders from other views with the same logic, but avoid repeating the same logic in each view.
+-- Instead, we create a view that calculates total revenue and total orders, which can be reused
+
+--1️. Total revenue (all orders) and number of orders--
 CREATE VIEW TotalRevenue AS
 SELECT SUM(UnitPrice * Quantity) AS Revenue,
     COUNT(DISTINCT OrderID) AS TotalOrders
