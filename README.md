@@ -1,7 +1,5 @@
 # northwind-sql-analytics
 
-# Northwind SQL Server KPI Practice
-
 Practical SQL Server practice project with 50+ KPIs, Views, Stored Procedures, Functions, and advanced reporting logic — all using the classic Northwind sample database.
 
 ---
