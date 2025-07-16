@@ -42,3 +42,4 @@ ORDER BY Product;
 SELECT * FROM RevenueBySupplier
 ORDER BY Supplier;
 
+EXECUTE RevenueInYear @Year = 1996;
