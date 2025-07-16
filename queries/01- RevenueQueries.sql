@@ -44,3 +44,4 @@ ORDER BY Supplier;
 
 EXECUTE RevenueInYear @Year = 1996;
 EXECUTE RevenueInMonth @Month = 5;
+EXECUTE RevenueInMonthInYear @Month = 5, @YEAR = 1997;
