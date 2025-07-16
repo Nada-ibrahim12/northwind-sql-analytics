@@ -42,6 +42,15 @@ ORDER BY Product;
 SELECT * FROM RevenueBySupplier
 ORDER BY Supplier;
 
-EXECUTE RevenueInYear @Year = 1996;
-EXECUTE RevenueInMonth @Month = 5;
-EXECUTE RevenueInMonthInYear @Month = 5, @YEAR = 1997;
+EXECUTE RevenueInYearAndTotalOrders @Year = 1996;
+EXECUTE RevenueInMonthAndTotalOrders @Month = 5;
+EXECUTE RevenueInMonthInYearAndTotalOrders @Month = 5, @YEAR = 1997;
+
+SELECT YEAR(OrderDate) AS OrderYear,
+    MONTH(OrderDate) AS OrderMonth,
+    COUNT(*) AS OrdersCount
+FROM Orders
+GROUP BY YEAR(OrderDate),
+    MONTH(OrderDate)
+ORDER BY YEAR(OrderDate),
+    MONTH(OrderDate);
