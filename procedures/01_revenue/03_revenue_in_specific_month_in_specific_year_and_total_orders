@@ -1,0 +1,26 @@
+ -- Get revenue for a specific given month in  a specific year
+    CREATE PROCEDURE RevenueInMonthInYearAndTotalOrders @Month INT,
+    @YEAR INT AS BEGIN
+SELECT YEAR(Orders.OrderDate) AS OrderYear,
+    MONTH(Orders.OrderDate) AS OrderMonth,
+    SUM(Quantity * UnitPrice) AS RevenueOfMonthInYear,
+    COUNT(DISTINCT Orders.OrderID) AS TotalOrders
+FROM [Order Details]
+    JOIN Orders ON [Order Details].OrderID = Orders.OrderID
+WHERE MONTH(Orders.OrderDate) = @Month
+    AND YEAR(Orders.OrderDate) = @YEAR
+GROUP BY MONTH(Orders.OrderDate),
+    YEAR(Orders.OrderDate);
+END;
+
+EXECUTE RevenueInMonthInYearAndTotalOrders @Month = 5,
+@YEAR = 1997;
+
+SELECT YEAR(OrderDate) AS OrderYear,
+    MONTH(OrderDate) AS OrderMonth,
+    COUNT(*) AS OrdersCount
+FROM Orders
+GROUP BY YEAR(OrderDate),
+    MONTH(OrderDate)
+ORDER BY YEAR(OrderDate),
+    MONTH(OrderDate);
