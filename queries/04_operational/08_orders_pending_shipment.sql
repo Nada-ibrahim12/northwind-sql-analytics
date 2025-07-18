@@ -1,0 +1,2 @@
+SELECT OrderID FROM Orders
+WHERE ShippedDate IS NULL;
